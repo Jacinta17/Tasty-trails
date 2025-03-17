@@ -25,6 +25,12 @@
     color: #800020 !important; /* Burgundy hover effect */
 }
 
+@media (max-width: 768px) {
+    .navbar-toggler {
+        margin-left: 10px; /* Moves it closer to the left */
+    }
+}
+
 /* Carousel Caption Styling */
 .carousel-caption {
     background: rgba(255, 255, 255, 0.6); /* Lighter background */
