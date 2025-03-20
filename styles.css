@@ -1,68 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 
-/* Burgundy Background for "TASTY TRAILS" */
+/* ------ GENERAL STYLES ------ */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------ BURGUNDY HEADER ------ */
 .brand-container {
-    background-color: #800020; /* Burgundy */
+    background-color: #800020;
     color: white;
     text-align: center;
     padding: 10px 0;
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: bold;
     font-family: 'Playfair Display', serif;
 }
 
-/* Metallic Gold Navbar */
+/* ------ NAVBAR ------ */
 .navbar-custom {
-    background-color: #D4AF37 !important; /* Metallic Gold */
+    background-color: #D4AF37 !important;
 }
 
 .navbar-nav .nav-link {
-    color: white !important; /* Ensures good contrast */
+    color: white !important;
     font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #800020 !important; /* Burgundy hover effect */
+    color: #800020 !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 768px) {
     .navbar-toggler {
-        margin-left: 10px; /* Moves it closer to the left */
+        margin-left: 10px;
+    }
+
+    .navbar-nav {
+        text-align: center;
     }
 }
 
-/* Carousel Caption Styling */
+/* ------ CAROUSEL ------ */
 .carousel-caption {
-    background: rgba(255, 255, 255, 0.6); /* Lighter background */
+    background: rgba(255, 255, 255, 0.6);
     color: black !important;
-    padding: 5px; /* Reduced padding */
-    border-radius: 5px; /* Smaller border radius */
-}
-
-/* Card Container */
-.card-container {
-    display: flex;
-    gap: 15px; /* Space between cards */
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap;
     padding: 10px;
+    border-radius: 5px;
 }
 
-/* Card Styles */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-caption {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+/* ------ MENU CARDS ------ */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 10px;
+    justify-items: center;
+}
+
 .card {
-    background-color: #D4AF37; /* Metallic Gold */
+    background-color: #D4AF37;
     color: black;
-    border: 2px solid #B8860B;
+    border: 2px solid #f7b204;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-    flex: 0 0 auto;
-    width: 18rem;
-    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
 }
 
-/* Ensure images fit properly */
 .card img {
     width: 100%;
     height: 150px;
@@ -70,34 +97,15 @@
     border-radius: 10px 10px 0 0;
 }
 
-/* Ensure text remains inside, except for the first card */
 .card-body {
-    background-color: #FFD700;
+    background-color: #fbefaa;
     padding: 10px;
     border-radius: 0 0 10px 10px;
     max-height: 120px;
     overflow-y: auto;
 }
 
-/* Remove scroll from ONLY the first card */
-.card-container .card:first-child .card-body {
-    max-height: none;
-    overflow-y: visible;
-}
-
-/* Card Text */
-.card-text {
-    font-weight: bold;
-    font-size: 14px;
-    white-space: normal;
-}
-
-/* Hide scrollbar */
-.card-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* Center the locations div */
+/* ------ LOCATION LINKS ------ */
 .locations {
     display: flex;
     flex-direction: column;
@@ -112,7 +120,6 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Style the location links */
 .locations a {
     display: block;
     text-decoration: none;
@@ -125,36 +132,42 @@
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect for links */
 .locations a:hover {
     background: rgba(128, 0, 32, 0.9);
     color: white;
     transform: scale(1.05);
 }
 
-/* Burgundy Background with Opacity */
-.bg-danger {
-    background-color: rgba(128, 0, 32, 0.8) !important;
-    color: white !important;
-    padding: 1rem;
-    border-radius: 5px;
+/* Background image only for the content below the navbar */
+.content-wrapper {
+    background: url('images/location.png') center/cover no-repeat fixed;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ---- BOOK A TABLE PAGE STYLES ---- */
+/* ------ HISTORY SECTION ------ */
+.p-3.mb-2 {
+    max-width: 90%;
+    margin: auto;
+    font-size: 1rem;
+}
 
-/* Centered Form Container */
+/* ------ BOOK A TABLE FORM ------ */
 .container {
     width: 90%;
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background: rgba(128, 0, 32, 0.9); /* Burgundy with slight opacity */
+    background: rgba(128, 0, 32, 0.9);
     color: white;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
@@ -172,9 +185,11 @@ input {
     border-radius: 5px;
 }
 
-/* Button */
+
+
+/* Button Styling */
 button {
-    background: #FFD700; /* Metallic Gold */
+    background: #FFD700;
     color: black;
     padding: 10px;
     font-size: 16px;
@@ -185,7 +200,7 @@ button {
 }
 
 button:hover {
-    background: #B8860B; /* Darker gold */
+    background: #B8860B;
 }
 
 /* Confirmation Message */
@@ -193,5 +208,25 @@ button:hover {
     display: none;
     font-size: 18px;
     margin-top: 15px;
-    color: #FFD700; /* Gold text */
+    color: #ff0000;
+}
+
+/* ------ FOOTER ------ */
+footer {
+    font-size: 14px;
+    padding: 10px;
+    background-color: #800020;
+    color: white;
+    text-align: center;
+}
+
+footer a {
+    font-size: 14px;
+    color: gold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: white;
 }
